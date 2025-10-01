@@ -17,7 +17,7 @@ export class Todo {
   task="";
   
   Ajouter = (li:string) => {
-     this.todos.push({id : this.todos.length+1,task:li,state:"pending"});
+     this.todos.push({id:this.todos.length+1,task:li,state:"pending"});
   }
 
   Supprimer = (id:number) =>{
