@@ -16,11 +16,11 @@ export class Todo {
   
   task="";
   
-  Ajouter = (ele:string) => {
-     this.todos.push({id : this.todos.length+1,task:ele,state:"pending"});
+  Ajouter = (li:string) => {
+     this.todos.push({id : this.todos.length+1,task:li,state:"pending"});
   }
-  
+
   Supprimer = (id:number) =>{
-    this.todos=this.todos.filter(todo => todo.id != id);
+    this.todos = this.todos.filter(todo => todo.id != id);
   }
 }
