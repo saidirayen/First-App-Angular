@@ -1,0 +1,16 @@
+<h2>Liste des taches à faire : </h2>
+<ul>
+    @for(todo of todos; track todo.id){
+        @if(todo.state==="pending"){
+        <li>
+            {{todo.task}}
+            <button (click)="Supprimer(todo.id)">Supprimer</button>
+        </li>
+        }
+    }
+</ul>
+
+<div>
+    <input type="text" [(ngModel)]="task">
+    <button (click)="Ajouter(task)">Ajouter</button>
+</div>
