@@ -1,0 +1,38 @@
+a{
+  transition: color 0.2s ease;
+}
+
+.navbar {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.navbar-brand {
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.navbar-brand img{
+  border-radius: 4px;
+}
+
+.nav-link{
+  font-weight: 400;
+  position: relative;
+  padding: 0.5rem 1rem;
+}
+
+.nav-link::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 70%;
+}

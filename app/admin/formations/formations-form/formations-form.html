@@ -1,0 +1,47 @@
+<div class="container mt-5 d-flex justify-content-center">
+  <div class="card shadow" style="max-width: 850px; width: 100%;">
+    <div class="card-body">
+      <h3 class="text-center fw-bold mt-3">{{ isEdit ? 'Modifier la Formation' : 'Ajouter une Formation' }}</h3>
+      <form (ngSubmit)="sauvegarder()" #f="ngForm" novalidate>
+        <div class="mb-3">
+          <label class="form-label">Titre</label>
+          <input type="text" name="titre" class="form-control" [(ngModel)]="formation.titre" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Description</label>
+          <textarea class="form-control" name="description" [(ngModel)]="formation.description" rows="3"></textarea>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Charge horaire</label>
+          <input type="number" name="chargeHoraire" class="form-control" [(ngModel)]="formation.chargeHoraire" required>
+        </div>
+        <div class="mb-3">
+        <label class="form-label">Niveau</label>
+        <select class="form-select" name="niveau" [(ngModel)]="formation.niveau" required>
+            @for (niveau of niveaux; track niveau){
+            <option [value]="niveau">{{niveau}}</option>
+            }
+        </select>
+        </div>
+        <div class="mb-3">
+        <label class="form-label">Catégories</label>
+        <select class="form-select" name="categories" [(ngModel)]="formation.categories" multiple required>
+            @for (categorie of categories; track categorie){
+                <option [value]="categorie">{{categorie}}</option>
+            }
+        </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Tags</label>
+          <input type="text" name="tags" class="form-control" [(ngModel)]="tagsText">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Programme (PDF)</label>
+          <input type="file" name="programmePdf" class="form-control" [(ngModel)]="formation.programmePdf">
+        </div>
+        <button class="btn btn-primary w-100 mb-2" [disabled]="f.invalid">Sauvegarder</button>
+        <a routerLink="/admin/formations" class="btn btn-outline-secondary w-100">Annuler</a>
+      </form>
+    </div>
+  </div>
+</div>

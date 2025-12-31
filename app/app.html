@@ -1,0 +1,44 @@
+@if(!isAdminRoute()){
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand glow-brand" [routerLink]="['/']">
+        <img src="assets/isetr.jpg" alt="ISET" width="30" height="30" class="align-text-top me-2">
+        Formation ISET
+      </a>
+      
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/']">Accueil</a>
+          </li> 
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['public/formations-rech']">Formations</a>
+          </li>
+        </ul>
+      </div>  
+    </div>
+  </nav>
+}
+
+@if(isAdminRoute()){
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand" [routerLink]="['/admin']">
+        <img src="assets/isetr.jpg" alt="ISET" width="30" height="30" class="align-text-top me-2">
+        Formation ISET Administration   
+      </a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/admin']">Accueil</a>
+          </li> 
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/']">Retour au site</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+}
+
+<router-outlet></router-outlet>

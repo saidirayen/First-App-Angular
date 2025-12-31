@@ -1,0 +1,44 @@
+<div class="container py-4">
+  <div class="mb-4 d-flex justify-content-between align-items-center">
+    <h3 class="fw-bold mb-0">Gestion des Sessions</h3>
+    <a routerLink="/admin/sessions/add" class="btn btn-primary">
+      Ajouter une session
+    </a>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-hover align-middle text-center">
+      <thead class="table-light">
+        <tr>
+          <th>Description</th>
+          <th>Formation</th>
+          <th>Date début</th>
+          <th>Date fin</th>
+          <th>Formateurs</th>
+          <th>Candidats</th>
+          <th>Statut</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (s of sessions; track s.id){
+          <tr>
+            <td>{{s.description}}</td>
+            <td>{{s.formation.titre}}</td>
+            <td>{{s.dateDebut}}</td>
+            <td>{{s.dateFin}}</td>
+            <td>{{s.formateurs.length}}</td>
+            <td>{{s.candidats.length}}</td>
+            <td>{{s.complet ? 'Complet' : 'Disponible'}}</td>
+            <td>
+              <div class="d-flex justify-content-center gap-2 flex-nowrap">
+                <a class="btn btn-sm btn-outline-warning me-2" [routerLink]="['/admin/sessions/edit', s.id]">Modifier</a>
+                <button class="btn btn-sm btn-outline-danger" (click)="delete(s.id)">Supprimer</button>
+              </div>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

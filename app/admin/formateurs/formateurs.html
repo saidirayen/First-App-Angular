@@ -1,0 +1,58 @@
+<div class="container py-4">
+  <div class="mb-4 d-flex justify-content-between align-items-center">
+    <h3 class="fw-bold mb-0">Gestion des Formateurs</h3>
+    <a routerLink="/admin/formateurs/add" class="btn btn-primary">Ajouter un formateur</a>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-hover align-middle text-center">
+      <thead class="table-light">
+        <tr>
+          <th>Photo</th>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Email</th>
+          <th>Téléphone</th>
+          <th>CIN</th>
+          <th>Spécialités</th>
+          <th>CV</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for(f of formateurs; track f.id){
+          <tr>
+            <td>
+                @if(f.photo!==""){
+                    <img [src]="'assets/formateurs/'+f.photo" width="100" height="100" class="rounded-circle shadow-sm" alt="photo formateur">
+                }
+                @else {
+                    <img src="assets/formateurs/default.jpg" width="100" height="100" class="rounded-circle shadow-sm" alt="photo formateur">
+                }
+            </td>
+            <td>{{f.nom}}</td>
+            <td>{{f.prenom}}</td>
+            <td>{{f.email}}</td>
+            <td>{{f.telephone}}</td>
+            <td>{{f.cin}}</td>
+            <td>{{f.specialites}}</td>
+            <td class="text-center">
+                @if(f.cv!==""){
+                    <a class="btn btn-success" [href]="'assets/pdfs/'+f?.cv" target="_blank">Voir le CV</a>
+                } 
+                @else{
+                    <span class="text-muted">N/A</span>
+                }
+            </td>
+            <td>
+                <div class="d-flex justify-content-center gap-2 flex-nowrap">
+                  <a class="btn btn-sm btn-outline-warning me-2" [routerLink]="['/admin/formateurs/edit',f.id]">Modifier</a>
+                  <button class="btn btn-sm btn-outline-danger" (click)="delete(f.id)">Supprimer</button>
+                </div>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+</div>

@@ -1,0 +1,30 @@
+<div class="container mt-5 d-flex justify-content-center">
+       <div class="card shadow" style="max-width: 700px; width: 100%;">
+              <div class="card-body">
+                     <h3 class="text-center fw-bold mt-3">Inscription</h3>
+                     <p class="text-center text-muted">{{session?.description}}</p>
+                     <form #f="ngForm" (ngSubmit)="onSubmit()" novalidate>
+                            <div class="mb-3">
+                                   <label class="form-label">Nom</label>
+                                   <input type="text" class="form-control" name="nom" [(ngModel)]="candidat.nom" required>
+                            </div>
+                            <div class="mb-3">
+                                   <label class="form-label">Prénom</label>
+                                   <input type="text" class="form-control" name="prenom" [(ngModel)]="candidat.prenom" required>
+                            </div>
+
+                            <div class="mb-3">
+                                   <label class="form-label">CIN</label>
+                                   <input type="text" class="form-control" name="cin" [(ngModel)]="candidat.cin" required>
+                            </div>
+
+                            <div class="mb-4">
+                                   <label class="form-label">Email</label>
+                                   <input type="email" class="form-control" name="email" [(ngModel)]="candidat.email" required>
+                            </div>
+
+                            <button class="btn btn-success w-100" [disabled]="f.invalid">S'inscrire</button>
+                     </form>
+              </div>
+       </div>
+</div>

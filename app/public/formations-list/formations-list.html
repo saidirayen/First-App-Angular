@@ -1,0 +1,22 @@
+<section class="mb-5 mt-5">
+    <h2 class="mb-5 fw-bold text-center">Formations disponibles pour {{categorie}}</h2>
+    <div class="row justify-content-center">
+      @for(f of formations; track f.id){
+        <div class="col-md-5 mb-4">
+          <div class="card formation-card">
+            <div class="card-body">
+              <h5>{{f.titre}}</h5>
+              <p>{{f.description}}</p>
+              @for(t of f.tags; track t){
+                <span class="badge bg-secondary me-1">{{t}}</span>
+              }
+            </div>
+            <div class="card-footer bg-white text-center">
+              <a [routerLink]="['/public/formation-details',f.id]" class="btn btn-primary">Détails</a>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+
